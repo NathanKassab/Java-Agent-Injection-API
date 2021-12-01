@@ -1,9 +1,13 @@
 package pro.faithful.agentInjectionApi;
 
+import java.io.File;
 import java.lang.instrument.Instrumentation;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
+
+import com.sun.tools.attach.VirtualMachine;
 
 import pro.faithful.agentInjectionApi.inject.InjectLocation;
 import pro.faithful.agentInjectionApi.inject.InjectionApi;
@@ -40,7 +44,7 @@ public class Agent {
 		}};
 	}
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		
 	}
 	
