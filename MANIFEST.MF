@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Agent-Class: pro.faithful.agentInjectionApi.Agent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Can-Set-Native-Method-Prefix: true
+Can-Set-Native-Prefix: true
