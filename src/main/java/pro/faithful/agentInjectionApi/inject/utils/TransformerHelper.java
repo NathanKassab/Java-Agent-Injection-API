@@ -150,13 +150,13 @@ public class TransformerHelper implements ClassFileTransformer {
 		clazz.accept(classWriter);
 		
 		// For debugging the transformer
-		try {
-			FileOutputStream out = new FileOutputStream(new File(System.nanoTime() + ".class"));
-			out.write(classWriter.toByteArray());
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			FileOutputStream out = new FileOutputStream(new File(System.nanoTime() + ".class"));
+//			out.write(classWriter.toByteArray());
+//			out.close();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 		return classWriter.toByteArray();
 		
