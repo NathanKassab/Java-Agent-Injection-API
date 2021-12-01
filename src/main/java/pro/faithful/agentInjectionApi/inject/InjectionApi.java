@@ -14,8 +14,16 @@ public class InjectionApi {
 	
 	public static HashMap<Inject, Method> transformMethods = new HashMap<>();
 	public static HashMap<Inject, Class<?>> injectClasses = new HashMap<>();
+	public static boolean debugMode = false;
 	
 	public static void init(Instrumentation instrumentation, Class<?>... transformerClasses) {
+		init(instrumentation, false, transformerClasses);
+	}
+	
+	public static void init(Instrumentation instrumentation, boolean debug, Class<?>... transformerClasses) {
+		
+		// For debug class output
+		debugMode = debug;
 		
 		// Search for methods that need injecting
 		System.out.println("Searching for transformers...");

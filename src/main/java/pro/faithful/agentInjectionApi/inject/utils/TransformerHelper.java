@@ -149,14 +149,16 @@ public class TransformerHelper implements ClassFileTransformer {
 		ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
 		clazz.accept(classWriter);
 		
-		// For debugging the transformer
-//		try {
-//			FileOutputStream out = new FileOutputStream(new File(System.nanoTime() + ".class"));
-//			out.write(classWriter.toByteArray());
-//			out.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		// Writes the classes to a file to help with debugging
+		if (InjectionApi.debugMode) {
+			try {
+				FileOutputStream out = new FileOutputStream(new File(System.nanoTime() + ".class"));
+				out.write(classWriter.toByteArray());
+				out.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		return classWriter.toByteArray();
 		

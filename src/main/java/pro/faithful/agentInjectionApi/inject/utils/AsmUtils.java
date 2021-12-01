@@ -31,7 +31,6 @@ public class AsmUtils {
 	
 	public static InsnList getVoidInvoke(int lineNum, Class<?> owner, String method, String methodDesc, MethodNode victim, Object[] args) {
 		InsnList insnList = new InsnList();
-		
 		// Invoke injection method
 		LabelNode line1 = new LabelNode(new Label());
 		insnList.add(line1);
@@ -105,6 +104,7 @@ public class AsmUtils {
 			if (staticCsv.isEmpty()) {
 				continue;
 			}
+			System.out.println(staticCsv);
 			List<String> items = Arrays.asList(staticCsv.split("\\s*,\\s*"));
 			if (items.size() != 3) {
 				System.err.println("Incorrect csv format for\"" + staticCsv + "\"");
@@ -161,6 +161,9 @@ public class AsmUtils {
 	}
 	
 	public static void createThisIfNotExist(InsnList insnList, MethodNode victim, Class<?> clazz) {
+		if (victim.access > Opcodes.ACC_STATIC) {
+			return;
+		}
 		if (getVarFromName(victim, "this") != null)
 			return;
 		victim.localVariables.add(new LocalVariableNode("this", Type.getDescriptor(clazz), null, getFirstLabel(insnList), getLastLabel(insnList), getUnusedVarInt(victim)));
