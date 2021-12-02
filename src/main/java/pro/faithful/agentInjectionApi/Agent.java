@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.sun.tools.attach.VirtualMachine;
-
 import pro.faithful.agentInjectionApi.inject.InjectLocation;
 import pro.faithful.agentInjectionApi.inject.InjectionApi;
 import pro.faithful.agentInjectionApi.inject.annotations.GetLocalVar;
