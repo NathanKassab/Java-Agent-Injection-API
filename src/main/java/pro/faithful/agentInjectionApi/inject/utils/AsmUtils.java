@@ -104,7 +104,6 @@ public class AsmUtils {
 			if (staticCsv.isEmpty()) {
 				continue;
 			}
-			System.out.println(staticCsv);
 			List<String> items = Arrays.asList(staticCsv.split("\\s*,\\s*"));
 			if (items.size() != 3) {
 				System.err.println("Incorrect csv format for\"" + staticCsv + "\"");
