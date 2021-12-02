@@ -71,10 +71,7 @@ public class AsmUtils {
 			if (isPrimitive(returnVarInt.desc)) {
 				castPrimitive(returnVarInt.desc, insnList);
 			}else {
-				if (returnVarInt.desc.startsWith("L") || returnVarInt.desc.endsWith(";")) {
-					System.err.println("Error: Desc starts with L or ends with ;. If the agent fails to load it may be because of this");
-				}
-				insnList.add(new TypeInsnNode(Opcodes.CHECKCAST, returnVarInt.desc));
+				insnList.add(new TypeInsnNode(Opcodes.CHECKCAST, returnVarInt.desc.substring(1, returnVarInt.desc.length() - 1)));
 			}
 			insnList.add(new VarInsnNode(Opcodes.ASTORE, returnVarInt.index));
 		}
@@ -98,10 +95,7 @@ public class AsmUtils {
 			if (isPrimitive(items.get(3))) {
 				castPrimitive(items.get(3), insnList);
 			}else {
-				if (items.get(3).startsWith("L") || items.get(3).endsWith(";")) {
-					System.err.println("Error: Desc starts with L or ends with ;. If the agent fails to load it may be because of this");
-				}
-				insnList.add(new TypeInsnNode(Opcodes.CHECKCAST, items.get(3)));
+				insnList.add(new TypeInsnNode(Opcodes.CHECKCAST, items.get(3).substring(1, items.get(3).length() - 1)));
 			}
 			insnList.add(new FieldInsnNode(Opcodes.PUTFIELD, items.get(1), items.get(2), items.get(3)));
 		}
@@ -125,10 +119,7 @@ public class AsmUtils {
 			if (isPrimitive(items.get(2))) {
 				castPrimitive(items.get(2), insnList);
 			}else {
-				if (items.get(2).startsWith("L") || items.get(2).endsWith(";")) {
-					System.err.println("Error: Desc starts with L or ends with ;. If the agent fails to load it may be because of this");
-				}
-				insnList.add(new TypeInsnNode(Opcodes.CHECKCAST, items.get(2)));
+				insnList.add(new TypeInsnNode(Opcodes.CHECKCAST, items.get(2).substring(1, items.get(2).length() - 1)));
 			}
 			insnList.add(new FieldInsnNode(Opcodes.PUTSTATIC, items.get(0), items.get(1), items.get(2)));
 		}
