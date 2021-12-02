@@ -28,7 +28,7 @@ Can-Set-Native-Prefix: true
 
 </details>
 
-5. Add the following to your pom.xml file
+4. Add the following to your pom.xml file
 <details>
 <summary>pom.xml</summary>
     
@@ -74,12 +74,12 @@ Can-Set-Native-Prefix: true
 
 </details>
 
-6. Fill your agentmain with the following method call. inst is the instrumentation, Agent.class is a list of classes that contains methods with the inject annotation. The boolean is debug mode, it can assist you by exporting the transformed classes to a file. These classes can be loaded in a [bytecode viewer](https://github.com/Konloch/bytecode-viewer) or [recaf](https://github.com/Col-E/Recaf), if the transformer is creating issues then you might be requested to provide these files
+5. Fill your agentmain with the following method call. inst is the instrumentation, Agent.class is a list of classes that contains methods with the inject annotation. The boolean is debug mode, it can assist you by exporting the transformed classes to a file. These classes can be loaded in a [bytecode viewer](https://github.com/Konloch/bytecode-viewer) or [recaf](https://github.com/Col-E/Recaf), if the transformer is creating issues then you might be requested to provide these files
 ```
 InjectionApi.init(inst, false, Agent.class);
 ```
 
-7. You should now have everything you need to inject methods, for this example we will be using the test jar included in the base dir of the repo. You can download that [here](https://github.com/NathanKassab/Java-Agent-Injection-API/raw/main/victim.jar). Our goal will be to inject into the "funny" method and do two tasks, change the "ping" string and print the old value to console. To do so we will add the following code to our agent class, the comments should explain what everything does
+6. You should now have everything you need to inject methods, for this example we will be using the test jar included in the base dir of the repo. You can download that [here](https://github.com/NathanKassab/Java-Agent-Injection-API/raw/main/victim.jar). Our goal will be to inject into the "funny" method and do two tasks, change the "ping" string and print the old value to console. To do so we will add the following code to our agent class, the comments should explain what everything does
 <details>
 <summary>Method</summary>
 
@@ -113,8 +113,8 @@ public static Map<String, Object> transformFunny1(
 
 </details>
 
-8. Remember how I had you add all that build junk in your pom.xml earlier? That was for a reason, the java agent need to be built before attached to a process. You can build the jar by setting the goals "clean compile assembly:single"
+7. Remember how I had you add all that build junk in your pom.xml earlier? That was for a reason, the java agent need to be built before attached to a process. You can build the jar by setting the goals "clean compile assembly:single"
 
-10. You're done, all that's left to do now is inject the agent into the test jar and monitor the results
+8. You're done, all that's left to do now is inject the agent into the test jar and monitor the results
     
 [Example of finished product](https://imgur.com/EWiVuqc)
