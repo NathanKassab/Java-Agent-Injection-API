@@ -7,6 +7,8 @@ import java.lang.instrument.IllegalClassFormatException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.security.ProtectionDomain;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
@@ -141,7 +143,7 @@ public class TransformerHelper implements ClassFileTransformer {
 		}
 		
 		// Write classnode to byte array
-		ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+		ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
 		clazz.accept(classWriter);
 		
 		// Writes the classes to a file to help with debugging
