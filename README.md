@@ -79,7 +79,7 @@ Can-Set-Native-Prefix: true
 InjectionApi.init(inst, false, Agent.class);
 ```
 
-7. You should now have everything you need to inject methods, for this example we will be using the test jar included in the base dir of the repo. You can download that [here](https://github.com/NathanKassab/Java-Agent-Injection-API/blob/main/victim.jar). Our goal will be to inject into the "funny" method and do two tasks, change the "ping" string and print the old value to console. To do so we will add the following code to our agent class, the comments should explain what everything does
+7. You should now have everything you need to inject methods, for this example we will be using the test jar included in the base dir of the repo. You can download that [here](https://github.com/NathanKassab/Java-Agent-Injection-API/raw/main/victim.jar). Our goal will be to inject into the "funny" method and do two tasks, change the "ping" string and print the old value to console. To do so we will add the following code to our agent class, the comments should explain what everything does
 <details>
 <summary>Method</summary>
 
